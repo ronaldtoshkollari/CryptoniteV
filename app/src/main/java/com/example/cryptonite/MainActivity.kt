@@ -3,14 +3,20 @@ package com.example.cryptonite
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.rememberNavController
 import com.example.cryptonite.presentation.main_screen.components.bottom_nav_bar.Screen
 import com.example.cryptonite.presentation.main_screen.components.bottom_nav_bar.composables.BottomNavigationBar
 import com.example.cryptonite.presentation.main_screen.components.bottom_nav_bar.composables.Navigation
 import com.example.cryptonite.presentation.ui.theme.CryptoniteTheme
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val currentRoute = mutableStateOf(Screen.Home.route)
@@ -23,8 +29,10 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     bottomBar = {
                         BottomNavigationBar(navController = navController, onItemClick = {navController.navigate(it.route)})
-                    }
+                    },
+
                 ) {
+
                     Navigation(navController = navController)
                 }
             }

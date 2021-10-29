@@ -6,16 +6,21 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
+import com.example.cryptonite.domain.model.Coin
 
 @Composable
-fun CoinList() { //TODO: Add coin List
+fun CoinList(
+    coins: List<Coin>
+) { //TODO: Add coin List
 
-    val coins = listOf("OK")
 
-    LazyColumn(contentPadding = PaddingValues(all = 12.dp),
+    LazyColumn(contentPadding = PaddingValues(start = 6.dp, end = 6.dp, top = 12.dp, bottom = 12.dp),
     verticalArrangement = Arrangement.spacedBy(6.dp)) {
 
         //TODO: Add coin compose
+        items(coins){
+            CoinItem(it)
+        }
 
     }
 

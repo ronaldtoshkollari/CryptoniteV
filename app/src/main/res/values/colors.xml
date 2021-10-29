@@ -10,4 +10,6 @@
 
     <color name="dark_gold">#FFEEBC1D</color>
     <color name="silver_grey">#FF242424</color>
+    <color name="pink">#FFe75480</color>
+    <color name="purple">#FFe754ca</color>
 </resources>
