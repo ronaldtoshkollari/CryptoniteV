@@ -4,6 +4,8 @@ import com.example.cryptonite.common.Constants
 import com.example.cryptonite.data.remote.CoinGeckoApi
 import com.example.cryptonite.data.remote.repository.CoinRepositoryImpl
 import com.example.cryptonite.domain.repository.CoinRepository
+import com.example.cryptonite.domain.use_case.home_screen_use_cases.SearchCoinUseCase
+import com.example.cryptonite.domain.use_case.home_screen_use_cases.SortCoinListUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,6 +33,16 @@ class AppModule {
     @Singleton
     fun provideCoinRepository(api: CoinGeckoApi): CoinRepository {
         return CoinRepositoryImpl(api)
+    }
+
+    @Provides
+    fun provideSortCoinsUseCase(): SortCoinListUseCase {
+        return SortCoinListUseCase()
+    }
+
+    @Provides
+    fun provideSearchCoinUseCase(): SearchCoinUseCase {
+        return SearchCoinUseCase()
     }
 
 }

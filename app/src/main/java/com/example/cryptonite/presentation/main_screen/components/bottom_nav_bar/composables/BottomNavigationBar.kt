@@ -2,11 +2,11 @@ package com.example.cryptonite.presentation.main_screen.components.bottom_nav_ba
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -33,13 +33,12 @@ fun BottomNavigationBar(
 
     val backStackEntry = navController.currentBackStackEntryAsState()
     BottomNavigation(
-        backgroundColor = Color.Black,
+        backgroundColor = MaterialTheme.colors.background,
         elevation = 5.dp,
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp))
-            .background(Color.Black)
-            .padding(10.dp)
+            .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
+            .background(MaterialTheme.colors.background)
     ) {
 
         items.forEach {

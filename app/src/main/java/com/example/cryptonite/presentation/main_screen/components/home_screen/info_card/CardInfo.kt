@@ -4,29 +4,26 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.cryptonite.R
 
-@Preview
+
 @Composable
-fun CardInfo() {
+fun CardInfo(navController: NavController) {
 
     val gradientBrush = Brush.verticalGradient(
         colors = listOf(
@@ -35,12 +32,11 @@ fun CardInfo() {
         )
     )
 
-    val openDialogDeposit = remember { mutableStateOf(false) }
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp),
+            .height(160.dp),
         elevation = 5.dp,
         shape = RoundedCornerShape(24.dp)
     ) {
@@ -84,10 +80,10 @@ fun CardInfo() {
             ) {
 
                 val buttonColors =
-                    ButtonDefaults.buttonColors(backgroundColor = Color.White.copy(0.5f), contentColor = Color.White)
+                    ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary, contentColor = MaterialTheme.colors.onSecondary)
 
                 Button(
-                    onClick = { openDialogDeposit.value = true },
+                    onClick = { navController.navigate("deposit") },
                     colors = buttonColors,
                     shape = RoundedCornerShape(12.dp)
 

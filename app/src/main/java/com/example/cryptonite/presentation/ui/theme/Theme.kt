@@ -9,15 +9,24 @@ import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = Grey800,
+    primaryVariant = GreyLight,
+    secondary = Blue800,
+    onPrimary = Color.White,
+    background = Color.Black,
+    onSecondary = Color.White
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = WhiteCream,
+    primaryVariant = WhiteCreamLight,
+    secondary = Blue800,
+    background = Color.White,
+    onPrimary = Color.Black,
+    onSecondary = Color.White,
+    onBackground = Color.Black,
+    onSurface = Color.Black,
+    surface = Color.White
 
     /* Other default colors to override
     background = Color.White,
@@ -42,8 +51,16 @@ fun CryptoniteTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compos
         systemUiController.setSystemBarsColor(
             color = Color.Transparent
         )
+
+        systemUiController.setNavigationBarColor(
+            color = Color.Black
+        )
     }else{
         systemUiController.setSystemBarsColor(
+            color = Color.White
+        )
+
+        systemUiController.setNavigationBarColor(
             color = Color.White
         )
     }

@@ -13,7 +13,7 @@ data class CoinListDtoItem(
     val atl_change_percentage: Double,
     val atl_date: String,
     val circulating_supply: String, // the number of cryptocurrency coins or tokens that are publicly available and circulating in the market
-    val current_price: Double,
+    val current_price: String,
     val fully_diluted_valuation: String, //  total value of the crypto at today's price if the entire future supply of coins were in circulation
     val high_24h: String, // max price in one day
     val id: String,

@@ -11,13 +11,13 @@ import com.example.cryptonite.domain.model.Coin
 @Composable
 fun CoinList(
     coins: List<Coin>
-) { //TODO: Add coin List
+) {
 
 
     LazyColumn(contentPadding = PaddingValues(start = 6.dp, end = 6.dp, top = 12.dp, bottom = 12.dp),
     verticalArrangement = Arrangement.spacedBy(6.dp)) {
 
-        //TODO: Add coin compose
+
         items(coins){
             CoinItem(it)
         }
