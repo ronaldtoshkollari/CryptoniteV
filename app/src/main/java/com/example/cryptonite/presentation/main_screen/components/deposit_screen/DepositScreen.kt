@@ -7,8 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -18,11 +16,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -31,6 +26,7 @@ import com.example.cryptonite.R
 import com.example.cryptonite.domain.model.Coin
 import com.example.cryptonite.presentation.main_screen.components.deposit_screen.components.DefaultButton
 import com.example.cryptonite.presentation.main_screen.components.deposit_screen.components.DefaultDropdownMenu
+import com.example.cryptonite.presentation.main_screen.components.deposit_screen.components.DefaultEditText
 import com.example.cryptonite.presentation.main_screen.components.deposit_screen.components.WalletCoinItem
 
 
@@ -43,9 +39,6 @@ fun DepositScreen() {
         mutableStateOf(false)
     }
 
-    val coinAmount = remember {
-        mutableStateOf("")
-    }
 
     val coins = mutableListOf(
         Coin(
@@ -173,7 +166,9 @@ fun DepositScreen() {
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colors.onSecondary,
                     fontSize = 25.sp,
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 15.dp)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 15.dp)
                 )
 
                 Spacer(modifier = Modifier.height(15.dp))
@@ -240,51 +235,30 @@ fun DepositScreen() {
                         }
                     }
                 },
-                title = {
-                    Text(
-                        text = "Add your coin",
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 35.dp),
-                        color = MaterialTheme.colors.primary,
-                        textAlign = TextAlign.Center,
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 18.sp
-                    )
-                },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(200.dp),
+                    .height(230.dp),
                 shape = RoundedCornerShape(24.dp),
                 text = {
                     Column(
-                        verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
 
-                        val focusManager = LocalFocusManager.current
 
-                        TextField(
-                            value = coinAmount.value,
-                            onValueChange = { coinAmount.value = it },
-                            maxLines = 1,
-                            singleLine = true,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(60.dp),
-                            placeholder = { Text(text = "Amount", color = Color.LightGray) },
-                            keyboardOptions = KeyboardOptions(
-                                keyboardType = KeyboardType.Number,
-                                imeAction = ImeAction.Done
-                            ),
-                            keyboardActions = KeyboardActions(onDone = {
-                                focusManager.clearFocus(
-                                    force = true
-                                )
-                            })
+                        Text(
+                            text = "Add your coin",
+                            modifier = Modifier.fillMaxWidth(),
+                            color = MaterialTheme.colors.primary,
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 18.sp
                         )
 
-                        Spacer(modifier = Modifier.width(16.dp))
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        DefaultEditText()
+
+                        Spacer(modifier = Modifier.height(16.dp))
 
                         DefaultDropdownMenu()
 

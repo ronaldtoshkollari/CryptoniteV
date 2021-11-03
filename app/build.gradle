@@ -101,5 +101,13 @@ dependencies {
     //Lottie
     implementation "com.airbnb.android:lottie-compose:4.2.0"
 
+    //Room Database
+    def roomVersion = "2.3.0"
+
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+
 
 }

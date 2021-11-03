@@ -1,9 +1,7 @@
-package com.example.cryptonite.data.remote.dto
+package com.example.cryptonite.data.api.dto
 
 import com.example.cryptonite.domain.model.Coin
 import com.google.gson.annotations.SerializedName
-import java.math.BigDecimal
-import java.math.BigInteger
 
 data class CoinListDtoItem(
     val ath: String, //all time high price

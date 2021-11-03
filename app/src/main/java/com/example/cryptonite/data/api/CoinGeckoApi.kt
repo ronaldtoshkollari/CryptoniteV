@@ -1,6 +1,7 @@
-package com.example.cryptonite.data.remote
+package com.example.cryptonite.data.api
 
-import com.example.cryptonite.data.remote.dto.CoinListDto
+import com.example.cryptonite.data.api.dto.CoinListDto
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -12,6 +13,6 @@ interface CoinGeckoApi {
         @Query("vs_currency") vs_currency: String,
         @Query("order") order: String,
         @Query("per_page") per_page: Int
-    ): CoinListDto
+    ): Response<CoinListDto>
 
 }

@@ -1,12 +1,10 @@
 package com.example.cryptonite.domain.repository
 
-import com.example.cryptonite.data.remote.dto.CoinListDto
+import com.example.cryptonite.domain.model.Coin
 
 interface CoinRepository {
 
-    suspend fun getCoins(
-        vs_currency: String,
-        order: String,
-        per_page: Int
-    ) : CoinListDto
+    suspend fun getCoins(): List<Coin>
+    suspend fun getCoinById(id: String): Coin?
+    suspend fun getCoinByName(name: String): Coin?
 }

@@ -1,6 +1,5 @@
 package com.example.cryptonite.domain.use_case.home_screen_use_cases
 
-import android.util.Log
 import com.example.cryptonite.domain.model.Coin
 import com.example.cryptonite.domain.util.CoinListFilter
 import com.example.cryptonite.domain.util.OrderType

@@ -1,3 +1,3 @@
-package com.example.cryptonite.data.remote.dto
+package com.example.cryptonite.data.api.dto
 
 class CoinListDto : ArrayList<CoinListDtoItem>()

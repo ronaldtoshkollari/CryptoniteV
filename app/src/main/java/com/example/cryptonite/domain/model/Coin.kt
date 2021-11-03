@@ -1,7 +1,10 @@
 package com.example.cryptonite.domain.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 
+@Entity(tableName = "coins")
 data class Coin(
     val ath: String? = "", //all time high price
     val ath_change_percentage: Double? = 0.0,
@@ -13,7 +16,8 @@ data class Coin(
     val current_price: String? = "",
     val fully_diluted_valuation: String? = "", //  total value of the crypto at today's price if the entire future supply of coins were in circulation
     val high_24h: String? = "", // max price in one day
-    val id: String? = "",
+    @PrimaryKey
+    val id: String = "",
     val image: String? = "",
     val last_updated: String? = "",
     val low_24h: String? = "",

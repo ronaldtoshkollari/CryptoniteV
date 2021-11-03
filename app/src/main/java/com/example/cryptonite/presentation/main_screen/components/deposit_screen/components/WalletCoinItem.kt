@@ -2,6 +2,7 @@ package com.example.cryptonite.presentation.main_screen.components.deposit_scree
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -35,7 +36,10 @@ fun WalletCoinItem(
         modifier = Modifier
             .fillMaxWidth()
             .height(75.dp)
-            .background(color = MaterialTheme.colors.background, shape = RoundedCornerShape(24.dp))
+            .background(
+                color = if (isSystemInDarkTheme()) Color.Black else Color.White,
+                shape = RoundedCornerShape(24.dp)
+            )
             .clip(
                 RoundedCornerShape(24.dp)
             ),
@@ -51,9 +55,13 @@ fun WalletCoinItem(
             Image(
                 painter = rememberImagePainter(coin.image),
                 contentDescription = "coin_image",
-                modifier = Modifier.weight(
-                    weight = 1.0f
-                ).clip(MaterialTheme.shapes.small).width(35.dp).height(35.dp)
+                modifier = Modifier
+                    .weight(
+                        weight = 1.0f
+                    )
+                    .clip(MaterialTheme.shapes.small)
+                    .width(35.dp)
+                    .height(35.dp)
             )
 
             Spacer(modifier = Modifier.width(12.dp))
@@ -74,7 +82,8 @@ fun WalletCoinItem(
                 Text(
                     text = "0.25395 ${coin.symbol?.uppercase()}",
                     color = Color.LightGray,
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.SemiBold
                 )
 
             }
