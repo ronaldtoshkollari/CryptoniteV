@@ -2,13 +2,11 @@ package com.example.cryptonite.data.repository
 
 import android.util.Log
 import com.example.cryptonite.common.Constants
-import com.example.cryptonite.data.api.CoinGeckoApi
-import com.example.cryptonite.data.api.dto.CoinListDto
 import com.example.cryptonite.data.api.dto.toCoin
-import com.example.cryptonite.data.repository.datasource.CoinCacheDataSource
-import com.example.cryptonite.data.repository.datasource.CoinLocalDataSource
-import com.example.cryptonite.data.repository.datasource.CoinRemoteDatasource
-import com.example.cryptonite.domain.model.Coin
+import com.example.cryptonite.data.repository.datasource.coin.CoinCacheDataSource
+import com.example.cryptonite.data.repository.datasource.coin.CoinLocalDataSource
+import com.example.cryptonite.data.repository.datasource.coin.CoinRemoteDatasource
+import com.example.cryptonite.domain.model.coin.Coin
 import com.example.cryptonite.domain.repository.CoinRepository
 import javax.inject.Inject
 
@@ -29,7 +27,7 @@ class CoinRepositoryImpl @Inject constructor(
         return getCoinByNameFromCache(name)
     }
 
-    suspend fun getCoinsFromAPI(): List<Coin> {
+    private suspend fun getCoinsFromAPI(): List<Coin> {
 
         lateinit var coinList: List<Coin>
 
@@ -51,7 +49,7 @@ class CoinRepositoryImpl @Inject constructor(
 
     }
 
-    suspend fun getCoinsFromDB(): List<Coin> {
+    private suspend fun getCoinsFromDB(): List<Coin> {
 
         lateinit var coinList: List<Coin>
 
@@ -74,7 +72,7 @@ class CoinRepositoryImpl @Inject constructor(
 
     }
 
-    suspend fun getCoinsFromCache(): List<Coin> {
+    private suspend fun getCoinsFromCache(): List<Coin> {
         lateinit var coinList: List<Coin>
 
         try {
@@ -93,7 +91,7 @@ class CoinRepositoryImpl @Inject constructor(
         return coinList
     }
 
-    suspend fun getCoinByIdFromDB(id: String): Coin? {
+    private suspend fun getCoinByIdFromDB(id: String): Coin? {
         var coin: Coin? = null
 
         try {
@@ -106,7 +104,7 @@ class CoinRepositoryImpl @Inject constructor(
 
     }
 
-    suspend fun getCoinByIdFromCache(id: String): Coin? {
+    private suspend fun getCoinByIdFromCache(id: String): Coin? {
         var coin: Coin? = null
 
         try {
@@ -124,7 +122,7 @@ class CoinRepositoryImpl @Inject constructor(
         return coin
     }
 
-    suspend fun getCoinByNameFromDB(name: String): Coin? {
+    private suspend fun getCoinByNameFromDB(name: String): Coin? {
         var coin: Coin? = null
 
         try {
@@ -137,7 +135,7 @@ class CoinRepositoryImpl @Inject constructor(
 
     }
 
-    suspend fun getCoinByNameFromCache(name: String): Coin? {
+    private suspend fun getCoinByNameFromCache(name: String): Coin? {
         var coin: Coin? = null
 
         try {

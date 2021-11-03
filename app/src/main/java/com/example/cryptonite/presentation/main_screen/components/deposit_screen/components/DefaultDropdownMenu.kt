@@ -13,27 +13,21 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.cryptonite.domain.model.coin.Coin
 
 @Composable
-fun DefaultDropdownMenu() {
+fun DefaultDropdownMenu(
+    items: List<Coin>,
+    onCoinSelect: (Coin) -> Unit
+) {
 
-    var expanded = remember {
+    val expanded = remember {
         mutableStateOf(false)
     }
 
-    val items = listOf(
-        "Bitcoin",
-        "Ethereum",
-        "Binance Coin",
-        "Tether",
-        "Cardano",
-        "Solana",
-        "XRP",
-        "Polkabot",
-        "Shiba Inu"
-    )
-    val disabledValue = "Bitcoin"
-    var selectedIndex = remember {
+
+    val disabledValue = items.first().name
+    val selectedIndex = remember {
         mutableStateOf(0)
     }
 
@@ -44,7 +38,7 @@ fun DefaultDropdownMenu() {
     ) {
 
 
-        DropDownItem(name = items[selectedIndex.value]) {
+        DropDownItem(name = items[selectedIndex.value].name, image = items[selectedIndex.value].image) {
             expanded.value = true
         }
 
@@ -59,9 +53,10 @@ fun DefaultDropdownMenu() {
         ) {
             items.forEachIndexed { index, s ->
 
-                DropDownItem(name = s) {
+                DropDownItem(name = s.name, image = s.image) {
                     selectedIndex.value = index
                     expanded.value = false
+                    onCoinSelect(s)
                 }
             }
         }

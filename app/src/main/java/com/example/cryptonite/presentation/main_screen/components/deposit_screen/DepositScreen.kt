@@ -19,60 +19,29 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.cryptonite.R
-import com.example.cryptonite.domain.model.Coin
+import com.example.cryptonite.domain.model.coin.Coin
 import com.example.cryptonite.presentation.main_screen.components.deposit_screen.components.DefaultButton
 import com.example.cryptonite.presentation.main_screen.components.deposit_screen.components.DefaultDropdownMenu
 import com.example.cryptonite.presentation.main_screen.components.deposit_screen.components.DefaultEditText
 import com.example.cryptonite.presentation.main_screen.components.deposit_screen.components.WalletCoinItem
+import com.example.cryptonite.presentation.view_model.deposit_screen_view_model.DepositViewModel
 
 
-@Preview
 @Composable
-fun DepositScreen() {
+fun DepositScreen(
+    viewModel: DepositViewModel = hiltViewModel()
+) {
 
 
     val openAlertDialog = remember {
         mutableStateOf(false)
     }
 
-
-    val coins = mutableListOf(
-        Coin(
-            name = "Bitcoin",
-            image = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-            current_price = "61453",
-            price_change_24h = "121.27",
-            price_change_percentage_24h = 0.19774,
-            symbol = "btc"
-        ),
-        Coin(
-            name = "Bitcoin",
-            image = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-            current_price = "61453",
-            price_change_24h = "121.27",
-            price_change_percentage_24h = 0.19774,
-            symbol = "btc"
-        ),
-        Coin(
-            name = "Bitcoin",
-            image = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-            current_price = "61453",
-            price_change_24h = "121.27",
-            price_change_percentage_24h = 0.19774,
-            symbol = "btc"
-        )
-    )
-
-    val userCoins = remember {
-        mutableStateOf(coins)
-    }
-
-
-
+    val state = viewModel.state.value
 
     Box {
 
@@ -115,7 +84,7 @@ fun DepositScreen() {
             ) {
 
                 Text(
-                    text = "$548712",
+                    text = state.userTotalAmount.toString(),
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 40.sp,
                     color = MaterialTheme.colors.onSurface
@@ -182,8 +151,7 @@ fun DepositScreen() {
                     ),
                     verticalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
-                    //TODO: Add coins
-                    items(items = userCoins.value) {
+                    items(items = state.userCoins) {
                         WalletCoinItem(it)
                     }
 
@@ -222,16 +190,13 @@ fun DepositScreen() {
                     Row {
                         DefaultButton(text = "Add") {
                             openAlertDialog.value = false
-                            userCoins.value.add(
-                                Coin(
-                                    name = "Bitcoin",
-                                    image = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-                                    current_price = "61453",
-                                    price_change_24h = "121.27",
-                                    price_change_percentage_24h = 0.19774,
-                                    symbol = "btc"
-                                )
-                            ) //need the selected coin from VM
+                            if(state.userCoin != null && state.coinToBeAddedAmount > 0.0){
+
+
+
+
+                                viewModel.onEvent(DepositScreenEvent.AddCoin(state.userCoin))
+                            }
                         }
                     }
                 },
@@ -256,11 +221,16 @@ fun DepositScreen() {
 
                         Spacer(modifier = Modifier.height(8.dp))
 
-                        DefaultEditText()
+                        DefaultEditText {
+                            state.coinToBeAddedAmount = it
+                        }
 
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        DefaultDropdownMenu()
+                        Log.e("DEPOSITSCREEN", "Error: ${state.allCoins}", )
+                        DefaultDropdownMenu(items = state.allCoins) {
+                            state.coin = it
+                        }
 
                     }
                 }

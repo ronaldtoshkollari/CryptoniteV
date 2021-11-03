@@ -13,13 +13,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
-import com.example.cryptonite.R
-import com.example.cryptonite.domain.model.Coin
+import com.example.cryptonite.domain.model.coin.Coin
 import java.math.BigDecimal
 
 

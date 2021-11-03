@@ -1,6 +1,6 @@
 package com.example.cryptonite.presentation.view_model.home_screen_view_model
 
-import com.example.cryptonite.domain.model.Coin
+import com.example.cryptonite.domain.model.coin.Coin
 import com.example.cryptonite.domain.util.CoinListFilter
 
 

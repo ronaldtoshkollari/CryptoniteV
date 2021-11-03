@@ -1,5 +1,6 @@
 package com.example.cryptonite.presentation.main_screen.components.deposit_screen.components
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,12 +16,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-@Preview(showBackground = true)
+
 @Composable
-fun DefaultEditText() {
+fun DefaultEditText(
+    onAmountFilled: (userAmount: Double) -> Unit
+) {
 
     val amount = remember {
         mutableStateOf("")
@@ -59,6 +61,16 @@ fun DefaultEditText() {
                 focusManager.clearFocus(
                     force = true
                 )
+
+                var amountAsDouble = 0.0
+
+                try {
+                    amountAsDouble = amount.value.toDouble()
+                } catch (exception: Exception){
+                    Log.e("ALERT_DIALOG", "Error: + ${exception.message.toString()}", )
+                }
+
+                onAmountFilled(amountAsDouble)
             }),
             maxLines = 1,
             singleLine = true

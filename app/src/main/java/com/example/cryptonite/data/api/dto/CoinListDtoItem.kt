@@ -1,6 +1,6 @@
 package com.example.cryptonite.data.api.dto
 
-import com.example.cryptonite.domain.model.Coin
+import com.example.cryptonite.domain.model.coin.Coin
 import com.google.gson.annotations.SerializedName
 
 data class CoinListDtoItem(

@@ -1,4 +1,4 @@
-package com.example.cryptonite.domain.model
+package com.example.cryptonite.domain.model.coin
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

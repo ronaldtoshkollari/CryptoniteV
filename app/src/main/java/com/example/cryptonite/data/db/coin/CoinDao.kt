@@ -1,9 +1,10 @@
-package com.example.cryptonite.data.db
+package com.example.cryptonite.data.db.coin
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.cryptonite.domain.model.Coin
+import com.example.cryptonite.domain.model.coin.Coin
 
 
 @Dao
@@ -20,7 +21,7 @@ interface CoinDao {
     suspend fun getCoinByName(name: String): Coin
 
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCoins(coins: List<Coin>)
 
     @Query("DELETE FROM coins")

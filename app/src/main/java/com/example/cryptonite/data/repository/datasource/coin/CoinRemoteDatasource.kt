@@ -1,4 +1,4 @@
-package com.example.cryptonite.data.repository.datasource
+package com.example.cryptonite.data.repository.datasource.coin
 
 import com.example.cryptonite.data.api.dto.CoinListDto
 import retrofit2.Response

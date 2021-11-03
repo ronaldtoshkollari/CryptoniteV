@@ -1,6 +1,6 @@
 package com.example.cryptonite.domain.use_case.home_screen_use_cases
 
-import com.example.cryptonite.domain.model.Coin
+import com.example.cryptonite.domain.model.coin.Coin
 
 class SearchCoinUseCase {
 

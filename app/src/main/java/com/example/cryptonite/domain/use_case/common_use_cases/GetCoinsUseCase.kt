@@ -1,10 +1,7 @@
-package com.example.cryptonite.domain.use_case.home_screen_use_cases
+package com.example.cryptonite.domain.use_case.common_use_cases
 
-
-import android.util.Log
-import com.example.cryptonite.common.Constants
 import com.example.cryptonite.common.Response
-import com.example.cryptonite.domain.model.Coin
+import com.example.cryptonite.domain.model.coin.Coin
 import com.example.cryptonite.domain.repository.CoinRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -23,17 +20,9 @@ class GetCoinsUseCase @Inject constructor(
             val response =
                 repository.getCoins()
 
-
-
-            Log.i("GetCoinsUseCase", "invoke: Got coins ! $response")
-
-
             emit(Response.Success<List<Coin>>(data = response))
-
-
         } catch (e: Exception) {
 
-            Log.e("GetCoinsUseCase", "" + e.message)
             emit(Response.Error<List<Coin>>(message = "An unexpected error occurred. Check your connection..."))
 
         }

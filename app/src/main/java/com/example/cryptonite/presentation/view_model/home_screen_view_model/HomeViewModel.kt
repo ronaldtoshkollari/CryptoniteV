@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cryptonite.common.Response
-import com.example.cryptonite.domain.use_case.home_screen_use_cases.GetCoinsUseCase
+import com.example.cryptonite.domain.use_case.common_use_cases.GetCoinsUseCase
 import com.example.cryptonite.domain.use_case.home_screen_use_cases.SearchCoinUseCase
 import com.example.cryptonite.domain.use_case.home_screen_use_cases.SortCoinListUseCase
 import com.example.cryptonite.domain.util.CoinListFilter

@@ -1,8 +1,8 @@
-package com.example.cryptonite.data.repository.datasourceImpl
+package com.example.cryptonite.data.repository.datasourceImpl.coin
 
-import com.example.cryptonite.data.db.CoinDao
-import com.example.cryptonite.data.repository.datasource.CoinLocalDataSource
-import com.example.cryptonite.domain.model.Coin
+import com.example.cryptonite.data.db.coin.CoinDao
+import com.example.cryptonite.data.repository.datasource.coin.CoinLocalDataSource
+import com.example.cryptonite.domain.model.coin.Coin
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

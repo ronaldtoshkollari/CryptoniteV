@@ -1,12 +1,13 @@
-package com.example.cryptonite.data.repository.datasourceImpl
+package com.example.cryptonite.data.repository.datasourceImpl.coin
 
 import com.example.cryptonite.data.api.CoinGeckoApi
 import com.example.cryptonite.data.api.dto.CoinListDto
-import com.example.cryptonite.data.repository.datasource.CoinRemoteDatasource
+import com.example.cryptonite.data.repository.datasource.coin.CoinRemoteDatasource
 import retrofit2.Response
 import javax.inject.Inject
 
-class CoinRemoteDataSourceImpl @Inject constructor(private val coinService: CoinGeckoApi):CoinRemoteDatasource {
+class CoinRemoteDataSourceImpl @Inject constructor(private val coinService: CoinGeckoApi):
+    CoinRemoteDatasource {
 
 
     override suspend fun getCoins(vs_currency: String, order: String, per_page: Int): Response<CoinListDto> {

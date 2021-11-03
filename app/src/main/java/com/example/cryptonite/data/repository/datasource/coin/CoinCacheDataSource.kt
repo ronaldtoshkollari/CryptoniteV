@@ -1,6 +1,6 @@
-package com.example.cryptonite.data.repository.datasource
+package com.example.cryptonite.data.repository.datasource.coin
 
-import com.example.cryptonite.domain.model.Coin
+import com.example.cryptonite.domain.model.coin.Coin
 
 interface CoinCacheDataSource {
 

@@ -14,11 +14,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
 
 
 @Composable
 fun DropDownItem(
     name: String,
+    image: String?,
     onClick: () -> Unit
 ) {
 
@@ -27,7 +29,8 @@ fun DropDownItem(
             .fillMaxWidth()
             .height(50.dp)
             .padding(3.dp)
-            .background(Color.White, shape = RoundedCornerShape(12.dp)).clickable { onClick() },
+            .background(Color.White, shape = RoundedCornerShape(12.dp))
+            .clickable { onClick() },
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start
     ) {
@@ -35,8 +38,9 @@ fun DropDownItem(
         Spacer(modifier = Modifier.width(12.dp))
 
         Image(
-            imageVector = Icons.Filled.Money,
+            painter = rememberImagePainter(image),
             contentDescription = "crypto_icon",
+            modifier = Modifier.height(50.dp).width(50.dp)
 
             )
 
