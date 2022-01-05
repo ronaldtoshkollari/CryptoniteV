@@ -1,6 +1,6 @@
 package com.example.cryptonite.domain.use_case.deposit_screen_use_cases
 
-import com.example.cryptonite.common.Response
+import com.example.cryptonite.util.common.Response
 import com.example.cryptonite.domain.model.user_coin.UserCoin
 import com.example.cryptonite.domain.repository.UserCoinRepository
 import kotlinx.coroutines.flow.Flow

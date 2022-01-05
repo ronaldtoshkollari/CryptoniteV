@@ -10,8 +10,8 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.example.cryptonite.presentation.main_screen.components.bottom_nav_bar.Screen
-import com.example.cryptonite.presentation.main_screen.components.bottom_nav_bar.composables.BottomNavigationBar
+import com.example.cryptonite.presentation.components.bottom_nav_bar.Screen
+import com.example.cryptonite.presentation.components.bottom_nav_bar.composables.BottomNavigationBar
 import com.example.cryptonite.presentation.ui.theme.CryptoniteTheme
 import dagger.hilt.android.AndroidEntryPoint
 

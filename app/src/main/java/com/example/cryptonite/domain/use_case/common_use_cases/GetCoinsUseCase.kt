@@ -1,6 +1,6 @@
 package com.example.cryptonite.domain.use_case.common_use_cases
 
-import com.example.cryptonite.common.Response
+import com.example.cryptonite.util.common.Response
 import com.example.cryptonite.domain.model.coin.Coin
 import com.example.cryptonite.domain.repository.CoinRepository
 import kotlinx.coroutines.flow.Flow

@@ -2,7 +2,7 @@ package com.example.cryptonite.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.cryptonite.common.Constants
+import com.example.cryptonite.util.common.Constants
 import com.example.cryptonite.data.api.CoinGeckoApi
 import com.example.cryptonite.data.db.coin.CoinDao
 import com.example.cryptonite.data.db.CryptoniteDatabase
@@ -21,7 +21,6 @@ import com.example.cryptonite.data.repository.datasourceImpl.user_coin.UserCoinC
 import com.example.cryptonite.data.repository.datasourceImpl.user_coin.UserCoinLocalDataSourceImpl
 import com.example.cryptonite.domain.repository.CoinRepository
 import com.example.cryptonite.domain.repository.UserCoinRepository
-import com.example.cryptonite.domain.use_case.deposit_screen_use_cases.GetUserCoinsUseCase
 import com.example.cryptonite.domain.use_case.home_screen_use_cases.SearchCoinUseCase
 import com.example.cryptonite.domain.use_case.home_screen_use_cases.SortCoinListUseCase
 import dagger.Module

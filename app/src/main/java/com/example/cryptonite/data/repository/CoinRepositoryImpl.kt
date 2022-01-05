@@ -1,7 +1,7 @@
 package com.example.cryptonite.data.repository
 
 import android.util.Log
-import com.example.cryptonite.common.Constants
+import com.example.cryptonite.util.common.Constants
 import com.example.cryptonite.data.api.dto.toCoin
 import com.example.cryptonite.data.repository.datasource.coin.CoinCacheDataSource
 import com.example.cryptonite.data.repository.datasource.coin.CoinLocalDataSource
