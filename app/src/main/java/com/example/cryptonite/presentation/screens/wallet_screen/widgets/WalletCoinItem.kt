@@ -1,4 +1,4 @@
-package com.example.cryptonite.presentation.screens.deposit_screen.widgets
+package com.example.cryptonite.presentation.screens.wallet_screen.widgets
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,12 +20,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
-import com.example.cryptonite.domain.model.user_coin.UserCoin
+import com.example.cryptonite.domain.model.coin.Coin
+
 
 
 @Composable
 fun WalletCoinItem(
-    userCoin: UserCoin
+    coin: Coin
 ) {
 
 
@@ -50,7 +51,7 @@ fun WalletCoinItem(
         ) {
 
             Image(
-                painter = rememberImagePainter(userCoin.image),
+                painter = rememberImagePainter(coin.image),
                 contentDescription = "coin_image",
                 modifier = Modifier
                     .weight(
@@ -70,14 +71,14 @@ fun WalletCoinItem(
             ) {
 
                 Text(
-                    text = userCoin.name,
+                    text = coin.name,
                     fontWeight = FontWeight.SemiBold,
                     color = Color.Black,
                     fontSize = 22.sp
                 )
 
                 Text(
-                    text = "0.25395 ${userCoin.id.uppercase()}",
+                    text = "0.25395 ${coin.id.uppercase()}",
                     color = Color.LightGray,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold
@@ -91,8 +92,8 @@ fun WalletCoinItem(
             ) {
 
                 Text(
-                    text = "${userCoin.coinPriceChange}$ (${userCoin.coinPriceChangePercentage}%)",
-                    color = if (userCoin.coinPriceChangePercentage > 0) Color.Green else Color.Red,
+                    text = "${coin.price_change_24h}$ (${coin.price_change_percentage_24h}%)",
+                    color = if (coin.price_change_percentage_24h!! > 0) Color.Green else Color.Red,
                     fontSize = 14.sp
                 )
 
@@ -101,7 +102,7 @@ fun WalletCoinItem(
                 Icon(
                     imageVector = Icons.Filled.ExpandLess,
                     contentDescription = "arrow_up",
-                    tint = if (userCoin.coinPriceChangePercentage > 0) Color.Green else Color.Red
+                    tint = if (coin.price_change_percentage_24h > 0) Color.Green else Color.Red
                 )
 
 

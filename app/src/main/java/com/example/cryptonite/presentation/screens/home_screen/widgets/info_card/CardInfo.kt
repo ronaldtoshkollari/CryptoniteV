@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.cryptonite.R
+import com.example.cryptonite.presentation.components.nav_host.Screens
 
 
 @Composable
@@ -73,7 +74,7 @@ fun CardInfo(navController: NavController) {
                     ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary, contentColor = MaterialTheme.colors.onSecondary)
 
                 Button(
-                    onClick = { navController.navigate("deposit") },
+                    onClick = { navController.navigate(Screens.Wallet.name) },
                     colors = buttonColors,
                     shape = RoundedCornerShape(24.dp),
                     modifier = Modifier.height(48.dp)
@@ -81,7 +82,7 @@ fun CardInfo(navController: NavController) {
                 ) {
 
                     Text(
-                        text = "Deposit",
+                        text = "My Wallet",
                         textAlign = TextAlign.Center,
                         color = Color.White,
                         style = MaterialTheme.typography.button
@@ -89,24 +90,6 @@ fun CardInfo(navController: NavController) {
 
                 }
 
-                Spacer(modifier = Modifier.width(15.dp))
-
-                Button(
-                    onClick = { /*TODO*/ },
-                    colors = buttonColors,
-                    shape = RoundedCornerShape(24.dp),
-                    modifier = Modifier.height(48.dp)
-
-                ) {
-
-                    Text(
-                        text = "Withdraw",
-                        textAlign = TextAlign.Center,
-                        color = Color.White,
-                        style = MaterialTheme.typography.button
-                    )
-
-                }
 
             }
 

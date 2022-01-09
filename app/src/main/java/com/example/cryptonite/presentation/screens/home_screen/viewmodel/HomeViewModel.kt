@@ -11,6 +11,7 @@ import com.example.cryptonite.domain.use_case.home_screen_use_cases.SortCoinList
 import com.example.cryptonite.util.filters.CoinListFilter
 import com.example.cryptonite.util.filters.OrderType
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -70,7 +71,7 @@ class HomeViewModel @Inject constructor(
 
     private fun getCoins() {
 
-        getCoinsUseCase().onEach { result ->
+        getCoinsUseCase().onEach() { result ->
 
 
             when (result) {

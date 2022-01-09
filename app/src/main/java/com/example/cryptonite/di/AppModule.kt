@@ -6,21 +6,14 @@ import com.example.cryptonite.util.common.Constants
 import com.example.cryptonite.data.api.CoinGeckoApi
 import com.example.cryptonite.data.db.coin.CoinDao
 import com.example.cryptonite.data.db.CryptoniteDatabase
-import com.example.cryptonite.data.db.user_coin.UserCoinDao
 import com.example.cryptonite.data.repository.CoinRepositoryImpl
-import com.example.cryptonite.data.repository.UserCoinRepositoryImpl
 import com.example.cryptonite.data.repository.datasource.coin.CoinCacheDataSource
 import com.example.cryptonite.data.repository.datasource.coin.CoinLocalDataSource
 import com.example.cryptonite.data.repository.datasource.coin.CoinRemoteDatasource
-import com.example.cryptonite.data.repository.datasource.user_coin.UserCoinCacheDataSource
-import com.example.cryptonite.data.repository.datasource.user_coin.UserCoinLocalDataSource
 import com.example.cryptonite.data.repository.datasourceImpl.coin.CoinCacheDataSourceImpl
 import com.example.cryptonite.data.repository.datasourceImpl.coin.CoinLocalDataSourceImpl
 import com.example.cryptonite.data.repository.datasourceImpl.coin.CoinRemoteDataSourceImpl
-import com.example.cryptonite.data.repository.datasourceImpl.user_coin.UserCoinCacheDataSourceImpl
-import com.example.cryptonite.data.repository.datasourceImpl.user_coin.UserCoinLocalDataSourceImpl
 import com.example.cryptonite.domain.repository.CoinRepository
-import com.example.cryptonite.domain.repository.UserCoinRepository
 import com.example.cryptonite.domain.use_case.home_screen_use_cases.SearchCoinUseCase
 import com.example.cryptonite.domain.use_case.home_screen_use_cases.SortCoinListUseCase
 import dagger.Module
@@ -106,41 +99,6 @@ class AppModule {
             coinCacheDataSource = cacheDataSource,
             coinLocalDataSource = localDataSource,
             coinRemoteDatasource = remoteDatasource
-        )
-    }
-
-
-    /*
-        User Coin Dependencies
-     */
-
-    @Provides
-    @Singleton
-    fun provideUserCoinCacheRepository(): UserCoinCacheDataSource {
-        return UserCoinCacheDataSourceImpl()
-    } // Cache datasource userCoin
-
-    @Provides
-    fun provideUserCoinDao(cryptoniteDatabase: CryptoniteDatabase): UserCoinDao {
-        return cryptoniteDatabase.userCoinDao()
-    } // UserCoin Dao
-
-    @Provides
-    @Singleton
-    fun provideUserCoinLocalRepository(userCoinDao: UserCoinDao): UserCoinLocalDataSource {
-        return UserCoinLocalDataSourceImpl(userCoinDao)
-    } // Local datasource userCoin
-
-
-    @Provides
-    @Singleton
-    fun provideUserCoinRepository(
-        cache: UserCoinCacheDataSource,
-        local: UserCoinLocalDataSource
-    ): UserCoinRepository {
-        return UserCoinRepositoryImpl(
-            userCoinCacheDataSource = cache,
-            userCoinLocalDataSource = local
         )
     }
 
