@@ -23,13 +23,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.example.cryptonite.R
 import com.example.cryptonite.presentation.components.nav_host.Screens
 
-
 @Composable
-fun CardInfo(navController: NavController) {
+fun CardInfo(
+    onCardClick: (route: String) -> Unit
+) {
 
     val gradientBrush = Brush.verticalGradient(
         colors = listOf(
@@ -37,7 +37,6 @@ fun CardInfo(navController: NavController) {
             colorResource(id = R.color.purple_500)
         )
     )
-
 
     Card(
         modifier = Modifier
@@ -70,8 +69,6 @@ fun CardInfo(navController: NavController) {
                 )
             }
 
-
-
             Row(
                 horizontalArrangement = Arrangement.Start,
                 modifier = Modifier.align(Alignment.BottomStart)
@@ -81,7 +78,7 @@ fun CardInfo(navController: NavController) {
                     ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary, contentColor = MaterialTheme.colors.onSecondary)
 
                 Button(
-                    onClick = { navController.navigate(Screens.Wallet.name) },
+                    onClick = { onCardClick(Screens.Wallet.name) },
                     colors = buttonColors,
                     shape = RoundedCornerShape(24.dp),
                     modifier = Modifier.height(48.dp)
@@ -96,13 +93,7 @@ fun CardInfo(navController: NavController) {
                     )
 
                 }
-
-
             }
-
-
         }
     }
-
-
 }
