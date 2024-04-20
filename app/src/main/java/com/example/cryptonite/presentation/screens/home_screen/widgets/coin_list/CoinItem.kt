@@ -15,7 +15,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import com.example.cryptonite.domain.model.coin.Coin
 import java.math.BigDecimal
@@ -47,7 +49,7 @@ fun CoinItem(
 
             Image(
                 /* TODO: Change to Coil */
-                painter = rememberImagePainter(coin.image),
+                painter = rememberAsyncImagePainter(coin.image),
                 contentDescription = "coin_image",
                 modifier = Modifier
                     .width(40.dp)
@@ -111,4 +113,10 @@ fun CoinItem(
 
     }
 
+}
+
+@Preview
+@Composable
+private fun CoinItemPreview() {
+    CoinItem(coin = Coin())
 }

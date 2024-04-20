@@ -47,12 +47,12 @@ fun HomeScreen(
 
     Scaffold(bottomBar = {
         BottomNavigationBar(navController)
-    }) {
+    }) { padding ->
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(15.dp)
+                .padding(padding)
                 .background(MaterialTheme.colors.background)
         ) {
 

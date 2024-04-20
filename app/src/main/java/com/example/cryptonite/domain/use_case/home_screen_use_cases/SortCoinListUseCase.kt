@@ -29,6 +29,8 @@ class SortCoinListUseCase {
                     is OrderType.Ascending -> {
                         return coinList.sortedBy { it.market_cap?.toDouble() }
                     }
+
+                    else -> Unit
                 }
 
             }
@@ -44,6 +46,8 @@ class SortCoinListUseCase {
                     is OrderType.Ascending -> {
                         return coinList.sortedBy { it.name?.lowercase() }
                     }
+
+                    else -> Unit
                 }
 
             }
@@ -61,6 +65,8 @@ class SortCoinListUseCase {
                         return coinList.sortedBy { it.current_price?.toDouble() }
 
                     }
+
+                    else -> Unit
                 }
 
             }
@@ -76,6 +82,8 @@ class SortCoinListUseCase {
                     is OrderType.Ascending -> {
                         return coinList.sortedBy { it.price_change_percentage_24h }
                     }
+
+                    else -> Unit
                 }
 
             }
@@ -91,6 +99,8 @@ class SortCoinListUseCase {
                     is OrderType.Ascending -> {
                         return coinList.sortedBy { it.max_supply?.toDouble() }
                     }
+
+                    else -> Unit
                 }
 
             }
@@ -107,6 +117,8 @@ class SortCoinListUseCase {
                         return coinList.sortedBy { it.total_supply?.toDouble() }
 
                     }
+
+                    else -> Unit
                 }
 
             }

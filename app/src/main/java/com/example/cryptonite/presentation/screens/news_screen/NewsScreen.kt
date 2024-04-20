@@ -10,10 +10,6 @@ fun NewsScreen(
     navController: NavController
 ){
 
-    Scaffold(bottomBar = {
-        BottomNavigationBar(navController)
-    }) {
 
-    }
 
 }

@@ -77,10 +77,11 @@ fun DepositScreen(
                 )
             }
         }
-    ) {
+    ) { padding ->
 
         Column(
             modifier = Modifier
+                .padding(padding)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

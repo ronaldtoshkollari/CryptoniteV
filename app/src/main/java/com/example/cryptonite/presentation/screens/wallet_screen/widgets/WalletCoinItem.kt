@@ -3,7 +3,13 @@ package com.example.cryptonite.presentation.screens.wallet_screen.widgets
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -19,9 +25,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
 import com.example.cryptonite.domain.model.coin.Coin
-
 
 
 @Composable
@@ -51,7 +56,7 @@ fun WalletCoinItem(
         ) {
 
             Image(
-                painter = rememberImagePainter(coin.image),
+                painter = rememberAsyncImagePainter(coin.image),
                 contentDescription = "coin_image",
                 modifier = Modifier
                     .weight(

@@ -8,9 +8,5 @@ import com.example.cryptonite.presentation.components.bottom_nav_bar.BottomNavig
 
 @Composable
 fun ProfileScreen(navController: NavController){
-    Scaffold(bottomBar = {
-        BottomNavigationBar(navController = navController)
-    }) {
 
-    }
 }

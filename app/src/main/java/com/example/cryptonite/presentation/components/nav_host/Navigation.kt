@@ -11,7 +11,6 @@ import com.example.cryptonite.presentation.screens.splash_screen.SplashScreen
 
 @Composable
 fun Navigation() {
-
     
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screens.Splash.name) {

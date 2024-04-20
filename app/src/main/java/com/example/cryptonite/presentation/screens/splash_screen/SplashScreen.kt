@@ -33,7 +33,7 @@ fun SplashScreen(navController: NavController) {
             iterations = 3,
             animation = tween(1000),
             repeatMode = RepeatMode.Reverse
-        )
+        ), label = ""
     )
 
     LaunchedEffect(key1 = true) {
