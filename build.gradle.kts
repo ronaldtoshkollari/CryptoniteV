@@ -3,8 +3,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-
+        maven(url = uri("https://oss.sonatype.org/content/repositories/snapshots/"))
     }
 }
 
@@ -19,6 +18,6 @@ plugins {
     alias(libs.plugins.hilt.plugin) apply false
 }
 
-tasks.register('clean', Delete) {
-    delete rootProject.layout.buildDirectory
+tasks.register("clean", Delete::class) {
+    delete(rootProject.layout.buildDirectory)
 }
